@@ -1,0 +1,28 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "panels": [
+    {
+      "type": "graph",
+      "title": "API Requests",
+      "targets": [
+        {
+          "expr": "api_requests_total"
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Jobs Processed",
+      "targets": [
+        {
+          "expr": "worker_jobs_processed_total"
+        }
+      ]
+    }
+  ],
+  "title": "Platform Overview",
+  "schemaVersion": 16,
+  "version": 1
+}

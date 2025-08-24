@@ -1,0 +1,20 @@
+
+services:
+  api:
+    build: ./api
+    ports:
+      - "8000:80"
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+  worker:
+    build: ./worker
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+  redis:
+    image: redis:7
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - api

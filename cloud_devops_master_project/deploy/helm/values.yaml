@@ -1,0 +1,15 @@
+
+image:
+  api: "ghcr.io/OWNER/REPO/api:latest"
+  worker: "ghcr.io/OWNER/REPO/worker:latest"
+  frontend: "ghcr.io/OWNER/REPO/frontend:latest"
+
+replicaCount:
+  api: 2
+  worker: 1
+  frontend: 1
+
+resources:
+  api:
+    limits: { cpu: "200m", memory: "256Mi" }
+    requests: { cpu: "100m", memory: "128Mi" }
