@@ -1,0 +1,31 @@
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: appdb
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:7
+    ports: ["6379:6379"]
+  api:
+    build: ./api
+    environment:
+      - DATABASE_URL=postgresql://app:app@postgres:5432/appdb
+      - REDIS_URL=redis://redis:6379/0
+    depends_on: [postgres, redis]
+    ports:
+      - "8000:80"
+  worker:
+    build: ./worker
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+    depends_on: [redis]
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on: [api]

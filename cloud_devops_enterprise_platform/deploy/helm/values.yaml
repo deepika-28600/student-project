@@ -1,0 +1,15 @@
+
+image:
+  api: "ghcr.io/OWNER/REPO/api:sha"
+  worker: "ghcr.io/OWNER/REPO/worker:sha"
+  frontend: "ghcr.io/OWNER/REPO/frontend:sha"
+
+postgres:
+  user: app
+  password: app
+  db: appdb
+
+replicaCount:
+  api: 2
+  worker: 1
+  frontend: 1

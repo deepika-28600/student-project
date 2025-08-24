@@ -1,0 +1,25 @@
+{
+  "title": "Enterprise Platform",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "API Requests",
+      "targets": [
+        {
+          "expr": "api_requests_total"
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Worker Jobs",
+      "targets": [
+        {
+          "expr": "worker_jobs_total"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 16,
+  "version": 1
+}
